@@ -16,4 +16,9 @@ public class PlayerNavMesh : MonoBehaviour
     {
         navMeshAgent.destination = destination;
     }
+
+    public float Speed()
+    {
+        return navMeshAgent.speed;
+    }
 }

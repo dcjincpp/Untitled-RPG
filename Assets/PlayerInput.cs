@@ -6,17 +6,30 @@ public class PlayerInput : MonoBehaviour
 {
     public Ray ray;
     [SerializeField] private PlayerNavMesh playerMovement;
+    [SerializeField] private float rotateSpeedMovement = 5.0f;
+    private float rotateVelocity = 0;
+
     private void Update() {
-        if (Input.GetMouseButton(1)) // Right mouse button click
+        if (Input.GetMouseButtonDown(1)) // Right mouse button click
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
 
-            if (Physics.Raycast(ray, out hit))
+            int layer_mask = LayerMask.GetMask("Ground");
+
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer_mask))
             {
                 // The ray has hit something
                 Debug.Log("Hit: " + hit.collider.gameObject.name);
                 Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red);
+
+                //Rotationvvvvvvvvvvvvvvvvvvvvvvvv
+                Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
+                float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement/playerMovement.Speed() * (Time.deltaTime));
+
+                transform.eulerAngles = new Vector3(0, rotationY, 0);
+                //Rotation^^^^^^^^^^^^^^^^^^^^^^^^
+
                 playerMovement.Move(hit.point);
             }
         }
