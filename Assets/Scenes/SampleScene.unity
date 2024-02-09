@@ -828,7 +828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1401402738233738316, guid: d3a7d6e3138fa1442bea9664ec529b72, type: 3}
       propertyPath: m_Acceleration
-      value: 999
+      value: 1e+10
       objectReference: {fileID: 0}
     - target: {fileID: 1401402738233738316, guid: d3a7d6e3138fa1442bea9664ec529b72, type: 3}
       propertyPath: m_AngularSpeed
@@ -836,7 +836,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3747639331820741685, guid: d3a7d6e3138fa1442bea9664ec529b72, type: 3}
       propertyPath: rotateSpeedMovement
-      value: 5
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6378660996720647290, guid: d3a7d6e3138fa1442bea9664ec529b72, type: 3}
       propertyPath: m_Name

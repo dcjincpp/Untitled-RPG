@@ -25,7 +25,10 @@ public class PlayerInput : MonoBehaviour
 
                 //Rotationvvvvvvvvvvvvvvvvvvvvvvvv
                 Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
-                float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationToLookAt.eulerAngles.y, ref rotateVelocity, rotateSpeedMovement/playerMovement.Speed() * (Time.deltaTime));
+                float rotationY = Mathf.SmoothDampAngle(transform.eulerAngles.y,
+                                                        rotationToLookAt.eulerAngles.y,
+                                                        ref rotateVelocity,
+                                                        rotateSpeedMovement/playerMovement.Speed() * (Time.deltaTime * 5));
 
                 transform.eulerAngles = new Vector3(0, rotationY, 0);
                 //Rotation^^^^^^^^^^^^^^^^^^^^^^^^
