@@ -41,18 +41,18 @@ public class CamManager : MonoBehaviour
             {
                 camLock = true;
 
-                cameraRoam.enabled = true;
-                cameraFollow.enabled = false;
+                cameraRoam.enabled = false;
+                cameraFollow.enabled = true;
             }
         }
-        else
+        else if(camLock == true)
         {
             if(Input.GetKeyDown(KeyCode.Y))
             {
                 camLock = false;
 
-                cameraRoam.enabled = false;
-                cameraFollow.enabled = true;
+                cameraRoam.enabled = true;
+                cameraFollow.enabled = false;
             }
         }
     }
