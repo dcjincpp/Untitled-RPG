@@ -19,9 +19,6 @@ public class PlayerInput : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, layer_mask))
             {
-                // The ray has hit something
-                Debug.Log("Hit: " + hit.collider.gameObject.name);
-                Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red);
 
                 //Rotationvvvvvvvvvvvvvvvvvvvvvvvv
                 Quaternion rotationToLookAt = Quaternion.LookRotation(hit.point - transform.position);
