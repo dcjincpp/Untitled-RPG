@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2225315374877878957}
   - component: {fileID: -3628594056856781660}
   - component: {fileID: 5917057933654615065}
-  - component: {fileID: -7609507289655036413}
+  - component: {fileID: 2624308539898479499}
   m_Layer: 6
-  m_Name: Q Bomb
+  m_Name: BomberQ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,7 +134,7 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-7609507289655036413
+--- !u!114 &2624308539898479499
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

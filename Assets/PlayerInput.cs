@@ -10,6 +10,8 @@ public class PlayerInput : MonoBehaviour
     private float rotateVelocity = 0;
 
     private void Update() {
+
+        //Moving
         if (Input.GetMouseButtonDown(1)) // Right mouse button click
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
