@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 3747639331820741685}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 6794659325617331270}
+  rotateSpeedMovement: 0.1
 --- !u!1 &7624588073035025438
 GameObject:
   m_ObjectHideFlags: 0

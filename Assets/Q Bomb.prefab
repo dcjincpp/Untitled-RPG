@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -3628594056856781660}
   - component: {fileID: 5917057933654615065}
   - component: {fileID: -7609507289655036413}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Q Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
