@@ -17,4 +17,11 @@ public class LobProjectile : MonoBehaviour
         Vector3 worldForward = transform.TransformDirection(localForward);
         rb.velocity = worldForward * initialSpeed + Vector3.up * 2f;
     }
+
+    private void OnCollisionEnter(Collision other) {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
