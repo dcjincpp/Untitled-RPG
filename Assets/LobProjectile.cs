@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LobProjectile : MonoBehaviour
 {
+    [SerializeField] private float maxRange = 10.0f;
     private Vector3 pos;
     private Vector3 center;
     private Vector3 targetRelCenter;
@@ -19,6 +20,17 @@ public class LobProjectile : MonoBehaviour
         int layer_mask = LayerMask.GetMask("Ground");
 
         Physics.Raycast(ray, out hit, Mathf.Infinity, layer_mask);
+        
+        Vector3 target;
+
+        if(Vector3.Distance(pos, hit.point) > maxRange)
+        {
+            Vector3 direction = hit.point - pos;
+            direction.Normalize();
+            target = pos + direction * maxRange;
+        } else {
+            target = hit.point;
+        }
 
         //Center of arc
         center = (pos + hit.point) * 0.5f;
@@ -26,7 +38,7 @@ public class LobProjectile : MonoBehaviour
         center -=new Vector3(0, 1, 0);
 
         posRelCenter = pos - center;
-        targetRelCenter = hit.point - center;
+        targetRelCenter = target - center;
     }
 
     private void Update() {
