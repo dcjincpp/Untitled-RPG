@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
+
+    public static PlayerInput Instance;
     public Ray ray;
     [SerializeField] private PlayerNavMesh playerMovement;
     [SerializeField] private float rotateSpeedMovement = 5.0f;
     private float rotateVelocity = 0;
+
+    private void Awake() {
+        if (Instance != null && Instance != this) 
+        { 
+            Destroy(this); 
+        } 
+        else 
+        { 
+            Instance = this; 
+        }
+    }
 
     private void Update() {
 
@@ -35,5 +48,10 @@ public class PlayerInput : MonoBehaviour
                 playerMovement.Move(hit.point);
             }
         }
+    }
+
+    public Vector3 GetPlayerPosition()
+    {
+        return transform.position;
     }
 }

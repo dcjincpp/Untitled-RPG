@@ -11,8 +11,8 @@ public class LobProjectile : MonoBehaviour
     private Vector3 posRelCenter;
     private RaycastHit hit;
     private float timer = 0.0f;
+    private PlayerInput player = PlayerInput.Instance;
     private void Start() {
-
         pos = transform.position;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -23,11 +23,13 @@ public class LobProjectile : MonoBehaviour
         
         Vector3 target;
 
-        if(Vector3.Distance(pos, hit.point) > maxRange)
+        if(Vector3.Distance(player.GetPlayerPosition(), hit.point) > maxRange)
         {
             Vector3 direction = hit.point - pos;
             direction.Normalize();
-            target = pos + direction * maxRange;
+            target = player.GetPlayerPosition() + direction * maxRange;
+            Debug.Log("Player postition: " + player.GetPlayerPosition());
+            Debug.Log("Target: " + target);
         } else {
             target = hit.point;
         }
