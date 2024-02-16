@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tree : MonoBehaviour
+public class Resource : MonoBehaviour
 {
     [SerializeField] private float maxHP = 10.0f;
+    [SerializeField] GameObject woodDrop;
     private float HP;
-    private GameObject woodDrop;
 
     // Start is called before the first frame update
     void Start()
@@ -24,8 +24,9 @@ public class Tree : MonoBehaviour
         }
     }
 
-    private void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
-        HP -= damage;
+        Mathf.Clamp(HP -= damage, 0.0f, maxHP);
+        Debug.Log(HP);
     }
 }

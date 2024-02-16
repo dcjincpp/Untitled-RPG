@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5976870748452666617}
   - component: {fileID: 2225315374877878957}
   - component: {fileID: -3628594056856781660}
-  - component: {fileID: 5917057933654615065}
+  - component: {fileID: 3754168018910819468}
   - component: {fileID: 2624308539898479499}
   m_Layer: 6
   m_Name: BomberQ
@@ -112,9 +112,9 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 3
---- !u!135 &5917057933654615065
-SphereCollider:
+  m_CollisionDetection: 2
+--- !u!65 &3754168018910819468
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,7 +132,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2624308539898479499
 MonoBehaviour:
@@ -147,3 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRange: 10
+  speed: 10
+  explosion: {fileID: 1959328972818160193, guid: cf3a97fea21b8cd42a9a908c4e045f0e, type: 3}

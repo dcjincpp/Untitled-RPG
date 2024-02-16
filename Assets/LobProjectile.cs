@@ -5,14 +5,18 @@ using UnityEngine;
 public class LobProjectile : MonoBehaviour
 {
     [SerializeField] private float maxRange = 10.0f;
+    [SerializeField] private float speed = 10.0f;
+    [SerializeField] private GameObject explosion;
     private Vector3 pos;
     private Vector3 center;
     private Vector3 targetRelCenter;
     private Vector3 posRelCenter;
+    private float range;
     private RaycastHit hit;
     private float timer = 0.0f;
     private PlayerInput player = PlayerInput.Instance;
     private void Start() {
+
         pos = transform.position;
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -23,7 +27,9 @@ public class LobProjectile : MonoBehaviour
         
         Vector3 target;
 
-        if(Vector3.Distance(player.GetPlayerPosition(), hit.point) > maxRange)
+        range = Vector3.Distance(player.GetPlayerPosition(), hit.point);
+
+        if(range > maxRange)
         {
             Vector3 direction = hit.point - pos;
             direction.Normalize();
@@ -44,7 +50,7 @@ public class LobProjectile : MonoBehaviour
     }
 
     private void Update() {
-        transform.position = Vector3.Slerp(posRelCenter, targetRelCenter, timer += Time.deltaTime);
+        transform.position = Vector3.Slerp(posRelCenter, targetRelCenter, timer += speed * (Time.deltaTime/range));
         transform.position += center;
     }
 
@@ -52,7 +58,10 @@ public class LobProjectile : MonoBehaviour
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.CompareTag("Ground"))
         {
+            Instantiate(explosion, transform.position, transform.rotation);
+            
             Destroy(this.gameObject);
         }
     }
+
 }

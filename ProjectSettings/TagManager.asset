@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Resource
   layers:
   - Default
   - TransparentFX
@@ -12,9 +13,9 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Abilities
-  - 
-  - 
+  - Ability
+  - Damageable
+  - Drop
   - 
   - 
   - 
